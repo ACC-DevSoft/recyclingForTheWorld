@@ -5,6 +5,7 @@ const app = express();
 //* Modulos
 const mongoose = require("mongoose");
 
+const uri = 'mongodb+srv://ACC:cZUzVF6w0QAkfJ3F@cluster0.gu5rl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 app.use(express.json()); //* Trabjar con jsons
 
@@ -14,7 +15,7 @@ app.listen(port, () => console.log("Servidor ejecutando en puerto: " + port));
 
 //* Conexion con MongoDB
 mongoose
-	.connect("mongodb://127.0.0.1:27017/recyclersdb", {
+	.connect(uri, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useFindAndModify: false,

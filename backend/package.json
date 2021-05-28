@@ -1,7 +1,6 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
@@ -17,5 +16,14 @@
     "jwt-simple": "^0.5.6",
     "moment": "^2.29.1",
     "mongoose": "^5.12.12"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ACC-DevSoft/recyclersForTheWorld.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ACC-DevSoft/recyclersForTheWorld/issues"
+  },
+  "homepage": "https://github.com/ACC-DevSoft/recyclersForTheWorld#readme",
+  "description": ""
 }

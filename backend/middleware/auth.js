@@ -11,7 +11,7 @@ const auth = (req, res, next)=>{
     if(!jwtToken) return res.status(401).send({Message: "Autorizacion rechazada: no hay token"});
     // verificar token y capturar errores
     try {
-        const payload = jwt.verify(jwtToken, "");
+        const payload = jwt.verify(jwtToken, "reciclerJWT");
         req.user = payload;
         next();
     } catch (error) {

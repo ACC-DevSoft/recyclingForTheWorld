@@ -33,7 +33,7 @@ router.post('/register', async (req, res) => {
 });
 
 //* Update de usuarios
-router.put("/user/update", Auth, async (req, res) => {
+router.put("/update", Auth, async (req, res) => {
 	const user = await User.findById(req.user._id); //* Validamos usuario
 	if (!user) return res.status(401).send("No existe el usuario");
 	const body = req.body;

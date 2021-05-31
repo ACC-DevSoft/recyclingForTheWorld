@@ -32,7 +32,7 @@ router.post("/register", async (req, res) => {
 });
 
 //* Update de usuarios
-router.put("/user/update", Auth, async (req, res) => {
+router.put("/update", Auth, async (req, res) => {
 	const user = await User.findById(req.user._id); //* Validamos usuario
 	if (!user) return res.status(401).send("No existe el usuario");
 	const body = req.body;
@@ -54,6 +54,7 @@ router.put("/user/update", Auth, async (req, res) => {
 });
 
 // eliminar usuario
+<<<<<<< HEAD
 router.put("/cambiarStatus", Auth, async (req, res) => {
 	const user = await User.findById(req.user._id);
 	if (!user) return res.status(400).send("El usuario no existe");
@@ -69,6 +70,23 @@ router.put("/cambiarStatus", Auth, async (req, res) => {
 		status: req.body.status,
 	});
 	return res.status(200).send({ user });
+=======
+router.put("/cambiarStatus", Auth, async(req, res) => {
+    const user = await User.findById(req.user._id);
+    if(!user) return res.status(400).send("El usuario no existe");
+
+    const hash = await bcrypt.hash(req.body.password, 10)
+    user = await User.findByIdAndUpdate(req.body._id, {
+    rol: req.body.rol,
+    name: req.body.name, 
+    lastName: req.body.lastName,
+    email: req.body.email, 
+    password:hash,
+    phone: req.body.phone,
+    status: req.body.status
+    });
+    return res.status(200).send({user});
+>>>>>>> main
 });
 
 // exportar modulo

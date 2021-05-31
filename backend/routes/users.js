@@ -54,16 +54,6 @@ router.put("/user/update", Auth, async (req, res) => {
 });
 
 // eliminar usuario
-<<<<<<< HEAD
-router.put("/cambiarStatus", Auth, async (req, res) => {
-	const user = await User.findById(req.user._id);
-	if (!user) return res.status(400).send("El usuario no existe");
-
-	user = await User.findByIdAndUpdate(req.body._id, {
-		status: req.body.status,
-	});
-	return res.status(200).send({ user });
-=======
 router.put("/cambiarStatus", Auth, async(req, res) => {
     const user = await User.findById(req.user._id);
     if(!user) return res.status(400).send("El usuario no existe");
@@ -79,7 +69,6 @@ router.put("/cambiarStatus", Auth, async(req, res) => {
     status: req.body.status
     });
     return res.status(200).send({user});
->>>>>>> aleja
 });
 
 // exportar modulo

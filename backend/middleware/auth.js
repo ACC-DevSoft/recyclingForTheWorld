@@ -7,7 +7,7 @@ const auth = (req, res, next)=>{
     let jwtToken = req.header("Authorization");
     if(!jwtToken) return res.status(401).send({Message: "Autorizacion rechazada: no hay token"});
     // separar el jwt del header 
-    jwtToken  = jwtToken.spilt(" ")[1];
+    jwtToken  = jwtToken.split(" ")[1];
     if(!jwtToken) return res.status(401).send({Message: "Autorizacion rechazada: no hay token"});
     // verificar token y capturar errores
     try {

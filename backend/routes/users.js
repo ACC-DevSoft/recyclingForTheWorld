@@ -6,14 +6,13 @@ const User = require("../models/users");
 const Auth = require("../middleware/auth");
 
 const bcrypt = require("bcrypt");
-const Users = require("../models/users");
 
 //* Register
 router.post("/register", async (req, res) => {
-	let user = await Users.findOne({ email: req.body.email });
-	if (!user) return res.status(401).send("Email ya se encuentra registrado");
+	let user = await User.findOne({ email: req.body.email });
+	if (user) return res.status(401).send("Email ya se encuentra registrado");
 	const hash = await bcrypt.hash(req.body.password, 10);
-	user = new Users({
+	user = new User({
 		rol: "User",
 		name: req.body.name,
 		lasname: req.body.lasname,
@@ -35,21 +34,21 @@ router.post("/register", async (req, res) => {
 router.put("/update", Auth, async (req, res) => {
 	const user = await User.findById(req.user._id); //* Validamos usuario
 	if (!user) return res.status(401).send("No existe el usuario");
-	const body = req.body;
-	const hash = await bcrypt.hash(body.password, 10);
-	user = await Board.findByIdAndUpdate(body._id, {
+    console.log(user)
+	const hash = await bcrypt.hash(req.body.password, 10);
+	const userdata = await User.findByIdAndUpdate(req.body._id, {
 		userId: user._id,
-		rol: body.rol,
-		name: body.name,
-		lastName: body.lastName,
-		email: body.email,
+		rol: req.body.rol,
+		name: req.body.name,
+		lastname: req.body.lastname,
+		email: req.body.email,
 		password: hash,
-		phone: body.phone,
-		status: req.body.status,
+		phone: req.body.phone
 	});
+    console.log(userdata);
+    console.log(user)
 
-	if (!user)
-		return res.status(401).send("No se pudo editar la información del usuario");
+	if (!userdata) return res.status(401).send("No se pudo editar la información del usuario");
 	return res.status(200).send({ user });
 });
 

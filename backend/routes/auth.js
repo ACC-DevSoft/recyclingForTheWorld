@@ -2,6 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
+const User = require("../models/users")
 
 //Logica 
 router.post("/login", async (req, res)=>{
@@ -11,7 +12,7 @@ router.post("/login", async (req, res)=>{
     const hash = await  bcrypt.compare(req.body.password, user.password);
     if(!hash) return res.status(401).send({Message : "Email y/o contraseña incorrectos"});
 
-    const jwtToken = await User.generateToken();
+    const jwtToken = await user.generateJWT();
     return res.status(200).send({jwtToken});
 });
 

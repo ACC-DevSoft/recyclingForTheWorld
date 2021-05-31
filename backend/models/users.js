@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     email: String, 
     password:String,
     phone: String,
-    status: boolean,
+    status: Boolean,
     date: {type: Date, default:Date.now}
 });
 

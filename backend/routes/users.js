@@ -7,7 +7,7 @@ const Auth = require("../middleware/auth");
 // logica
 
 // eliminar usuario
-router.post("/cambiarStatus", Auth, async(req, res) => {
+router.put("/cambiarStatus", Auth, async(req, res) => {
     const user = await User.findById(req.user._id);
     if(!user) return res.status(400).send("El usuario no existe");
 

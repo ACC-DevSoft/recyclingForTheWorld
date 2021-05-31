@@ -1,0 +1,8 @@
+const express = require("express");
+const router = express.Router();
+const Auth = require("../middleware/auth");
+const User = require("../models/users");
+const Post = require("../models/post");
+
+
+module.exports = router;

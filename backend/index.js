@@ -5,9 +5,14 @@ const app = express();
 //* Modulos
 const mongoose = require("mongoose");
 
+//* Routes
+const Users = require('./routes/users');
+
 const uri = 'mongodb+srv://ACC:cZUzVF6w0QAkfJ3F@cluster0.gu5rl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 app.use(express.json()); //* Trabjar con jsons
+
+app.use('/api/user/',Users)
 
 //* Configuración de los puertos del servidor
 const port = process.env.PORT || 3025;

@@ -15,9 +15,12 @@ const userSchema = new mongoose.Schema({
     status: String,
     date: {type: Date, default:Date.now}
 });
+<<<<<<< HEAD
 =======
 // logica
 >>>>>>> david
+=======
+>>>>>>> aleja
 
 userSchema.methods.generateJWT = function() {
     return jwt.sign({
@@ -27,6 +30,11 @@ userSchema.methods.generateJWT = function() {
         iat:moment().unix()
     },"reciclerJWT")
 }
+<<<<<<< HEAD
+=======
+
+const User = mongoose.model('users', userSchema)
+>>>>>>> aleja
 
 const User = mongoose.model('users', userSchema)
 

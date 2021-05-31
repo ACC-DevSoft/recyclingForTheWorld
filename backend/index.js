@@ -5,14 +5,25 @@ const app = express();
 //* Modulos
 const mongoose = require("mongoose");
 
+<<<<<<< HEAD
 //* Routes
 const Users = require('./routes/users');
+=======
+//*Routes
+const User = require("./routes/users");
+const Auth = require("./routes/auth");
+>>>>>>> aleja
 
 const uri = 'mongodb+srv://ACC:cZUzVF6w0QAkfJ3F@cluster0.gu5rl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 app.use(express.json()); //* Trabjar con jsons
 
+<<<<<<< HEAD
 app.use('/api/user/',Users)
+=======
+app.use("/api/user/", User);
+app.use("/api/auth/", Auth);
+>>>>>>> aleja
 
 //* Configuración de los puertos del servidor
 const port = process.env.PORT || 3025;

@@ -11,7 +11,7 @@ const Users = require("../models/users");
 //* Register
 router.post('/register', async (req, res) => {
     let user = await Users.findOne({email: req.body.email})
-    if(!user) return res.status(401).send('Email ya se encuentra registrado');
+    if(user) return res.status(401).send('Email ya se encuentra registrado');
     const hash = await bcrypt.hash(req.body.password, 10)
     user = new Users({
         rol: 'User',

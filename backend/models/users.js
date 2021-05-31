@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const moment = require("moment");
 const jwt = require("jsonwebtoken");
 
-<<<<<<< HEAD
+
 // logica 
 const userSchema = new mongoose.Schema({
     rol: String,
@@ -12,15 +12,9 @@ const userSchema = new mongoose.Schema({
     email: String, 
     password:String,
     phone: String,
-    status: String,
+    status: boolean,
     date: {type: Date, default:Date.now}
 });
-<<<<<<< HEAD
-=======
-// logica
->>>>>>> david
-=======
->>>>>>> aleja
 
 userSchema.methods.generateJWT = function() {
     return jwt.sign({
@@ -30,11 +24,6 @@ userSchema.methods.generateJWT = function() {
         iat:moment().unix()
     },"reciclerJWT")
 }
-<<<<<<< HEAD
-=======
-
-const User = mongoose.model('users', userSchema)
->>>>>>> aleja
 
 const User = mongoose.model('users', userSchema)
 

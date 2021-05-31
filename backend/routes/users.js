@@ -34,10 +34,9 @@ router.post("/register", async (req, res) => {
 router.put("/update", Auth, async (req, res) => {
 	const user = await User.findById(req.user._id); //* Validamos usuario
 	if (!user) return res.status(401).send("No existe el usuario");
-    console.log(user)
 	const hash = await bcrypt.hash(req.body.password, 10);
 	const userdata = await User.findByIdAndUpdate(req.body._id, {
-		userId: user._id,
+        _id: req.body._id,
 		rol: req.body.rol,
 		name: req.body.name,
 		lastname: req.body.lastname,
@@ -45,30 +44,35 @@ router.put("/update", Auth, async (req, res) => {
 		password: hash,
 		phone: req.body.phone
 	});
-    console.log(userdata);
-    console.log(user)
-
 	if (!userdata) return res.status(401).send("No se pudo editar la información del usuario");
 	return res.status(200).send({ user });
 });
 
-// eliminar usuario
-router.put("/cambiarStatus", Auth, async(req, res) => {
-    const user = await User.findById(req.user._id);
-    if(!user) return res.status(400).send("El usuario no existe");
-
-    const hash = await bcrypt.hash(req.body.password, 10)
-    user = await User.findByIdAndUpdate(req.body._id, {
-    rol: req.body.rol,
-    name: req.body.name, 
-    lastName: req.body.lastName,
-    email: req.body.email, 
-    password:hash,
-    phone: req.body.phone,
-    status: req.body.status
-    });
-    return res.status(200).send({user});
+router.put("/changeStatus", Auth, async (req, res) => {
+	const user = await User.findById(req.user._id); //* Validamos usuario
+	if (!user) return res.status(401).send("No existe el usuario");
+	const hash = await bcrypt.hash(req.body.password, 10);
+    let status = user.status;
+    if (status){
+        status = false;
+    } else {
+        status = true;
+    }
+	const userdata = await User.findByIdAndUpdate(req.body._id, {
+        _id: user._id,
+		rol: req.body.rol,
+		name: req.body.name,
+		lastname: req.body.lastname,
+		email: req.body.email,
+		password: hash,
+		phone: req.body.phone,
+        status: status
+	});
+	if (!userdata) return res.status(401).send("No se pudo eliminar el usuario");
+	return res.status(200).send({ user });
 });
+
+
 
 // exportar modulo
 module.exports = router;

@@ -47,6 +47,12 @@ router.put("/changeStatus", Auth, async (req, res) => {
     });
     if(!post) return res.status(401).send("No se pudo Eliminar el post");
     return res.status(200).send({post})
+});
+
+router.get("/usersPosts", Auth, async(req, res) => {
+    const post = await Post.find({userId: req.user._id});
+    if(!post) return res.status(401).send("error when listing tasks");
+    return res.status(200).send({ post });
 })
 
 module.exports = router;

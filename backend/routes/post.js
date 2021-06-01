@@ -11,7 +11,6 @@ const Auth = require("../middleware/auth");
 
 router.post("/addPost", Auth, async (req, res) => {
     const user = await User.findById( req.user._id);
-
     if(!user) return res.status(401).send("Usuario n autenticado");
 
     const post = new Post({
@@ -27,15 +26,12 @@ router.post("/addPost", Auth, async (req, res) => {
 });
 
 
-
-
-
-router.put("/updatePost",Auth, async (req, res) =>{
-    const user = await User.findById(req.user.id);
+router.put("/updatePost", Auth, async (req, res) =>{
+    const user = await User.findById(req.user._id);
     if(!user) return res.status(401).send({Message: "No se encontro el usuario"});
 
     const post = await Post.findByIdAndUpdate(req.body._id,{
-        userId: req.user.id,
+        userId: user.id,
         title: req.body.title,
         description: req.body.description,
         imageUrl: req.body.imageUrl,

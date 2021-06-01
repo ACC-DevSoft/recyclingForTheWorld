@@ -12,7 +12,7 @@ const Auth = require("../middleware/auth");
 router.post("/addPost", Auth, async (req, res) => {
     const user = await User.findById( req.user._id);
 
-    if(!user) return res.status(401).send("Usuario n autenticado");
+    if(!user) return res.status(401).send("Usuario no autenticado");
 
     const post = new Post({
         userId: user._id,

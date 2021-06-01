@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 
 //*Routes
 const User = require("./routes/users");
+const Post = require("./routes/post");
 const Auth = require("./routes/auth");
 
 const uri = 'mongodb+srv://ACC:cZUzVF6w0QAkfJ3F@cluster0.gu5rl.mongodb.net/recyclingForTheWorld?retryWrites=true&w=majority'
@@ -14,6 +15,7 @@ const uri = 'mongodb+srv://ACC:cZUzVF6w0QAkfJ3F@cluster0.gu5rl.mongodb.net/recyc
 app.use(express.json()); //* Trabjar con jsons
 
 app.use("/api/user/", User);
+app.use("/api/post/", Post);
 app.use("/api/auth/", Auth);
 
 //* Configuración de los puertos del servidor

@@ -22,7 +22,8 @@ userSchema.methods.generateJWT = function() {
         name:this.name,
         status:this.status,
         iat:moment().unix()
-    },SECRET_kEY_JWT)
+    },
+    process.env.SECRET_kEY_JWT)
 }
 
 const User = mongoose.model('users', userSchema)

@@ -12,7 +12,7 @@ const userAuth = require("../middleware/users");
 
 router.post("/addPost", Auth, userAuth, async (req, res) => {
     const user = await User.findById( req.user._id);
-    if(!user) return res.status(401).send("Usuario n autenticado");
+    if(!user) return res.status(401).send("User not authenticated");
 
     const post = new Post({
         userId: user._id,
@@ -36,13 +36,13 @@ router.put("/updatePost", Auth, userAuth, async (req, res) =>{
         status: req.body.status
     }); 
 
-    if(!post) return res.status(401).send({Message: "No se pudo avtualizar la publicación"});
+    if(!post) return res.status(401).send({Message: "Couldn't update post"});
     return res.status(200).send({post});
 });
 router.put("/changeStatus", Auth,userAuth, async (req, res) => {
  
     const post = await Post.findById(req.body._id);
-    if(!post) return res.status(401).send("El Post No existe")
+    if(!post) return res.status(401).send("The post does not exist")
     let status = post.status;
     if (status) {
         status = false;
@@ -51,13 +51,13 @@ router.put("/changeStatus", Auth,userAuth, async (req, res) => {
     } 
     const postData = await Post.findByIdAndUpdate(req.body._id, {
         _id: req.body._id,
-        userId: user._id,
+        userId: req.user._id,
         title: req.body.title,
         description: req.body.description,
         imageUrl: req.body.imageUrl,
         status: status,
     });
-    if(!postData) return res.status(401).send("No se pudo Eliminar el post");
+    if(!postData) return res.status(401).send("Couldn't delete post");
     return res.status(200).send({postData})
 });
 
@@ -65,13 +65,13 @@ router.put("/changeStatus", Auth,userAuth, async (req, res) => {
 
 router.get("/usersPosts", Auth,userAuth, async(req, res) => {
     const post = await Post.find({userId: req.user._id});
-    if(!post) return res.status(401).send("error when listing tasks");
+    if(!post) return res.status(401).send("Error while listing posts");
     return res.status(200).send({ post });
 })
 
 router.get("/getPost", Auth,userAuth, async (req, res) => {
     const post = await Post.find({status: true});
-    if(!post) return res.status(401).send("error when listing tasks");
+    if(!post) return res.status(401).send("Error while listing posts");
     return res.status(200).send({ post });
 })
 

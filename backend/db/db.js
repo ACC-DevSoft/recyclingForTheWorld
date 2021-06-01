@@ -8,10 +8,10 @@ const dbConnection = async () => {
 			useFindAndModify: false,
 			useCreateIndex: true,
 		});
-		console.log("Conexion con MongoDB ON");
+		console.log("Connected with MongoDB");
 	} catch (error) {
-		console.log("Error al conectar con MongoDB", err);
-		throw new Error("Error al conectar a MongoDB");
+		console.log("Error while tring to connect with MongoDB", err);
+		throw new Error("Error while tring to connect with MongoDB");
 	}
 };
 

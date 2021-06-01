@@ -12,7 +12,7 @@ const userAuth = require("../middleware/users");
 //* Register
 router.post("/register", async (req, res) => {
 	let user = await User.findOne({ email: req.body.email });
-	if (user) return res.status(401).send("Email ya se encuentra registrado");
+	if (user) return res.status(401).send("Email is already registered");
 	const hash = await bcrypt.hash(req.body.password, 10);
 	user = new User({
 		rol: "User",
@@ -28,7 +28,7 @@ router.post("/register", async (req, res) => {
 		const jwtToken = user.generateJWT();
 		res.status(200).send({ jwtToken });
 	} else {
-		return res.status(400).send("No fue posible registrar el usuario");
+		return res.status(400).send("Couldn't register user");
 	}
 });
 
@@ -45,13 +45,14 @@ router.put("/update", Auth, userAuth, async (req, res) => {
 		password: hash,
 		phone: req.body.phone
 	});
-	if (!userdata) return res.status(401).send("No se pudo editar la información del usuario");
-	return res.status(200).send({ user });
+	if (!userdata) return res.status(401).send("Couldn't edit user information");
+	return res.status(200).send({ userdata });
 });
 
 router.put("/changeStatus", Auth, userAuth, async (req, res) => {
 
 	const hash = await bcrypt.hash(req.body.password, 10);
+	const user = await User.findOne({ email: req.body.email });
     let status = user.status;
     if (status){
         status = false;
@@ -59,7 +60,6 @@ router.put("/changeStatus", Auth, userAuth, async (req, res) => {
         status = true;
     }
 	const userdata = await User.findByIdAndUpdate(req.body._id, {
-        _id: user._id,
 		rol: req.body.rol,
 		name: req.body.name,
 		lastname: req.body.lastname,
@@ -68,7 +68,7 @@ router.put("/changeStatus", Auth, userAuth, async (req, res) => {
 		phone: req.body.phone,
         status: status
 	});
-	if (!userdata) return res.status(401).send("No se pudo eliminar el usuario");
+	if (!userdata) return res.status(401).send("Couldn't delete user");
 	return res.status(200).send({ user });
 });
 

@@ -1,11 +1,13 @@
 // importar modulos
 const express = require("express");
 const router = express.Router();
+const bcrypt = require("bcrypt");
 
 const User = require("../models/users");
-const Auth = require("../middleware/auth");
 
-const bcrypt = require("bcrypt");
+const Auth = require("../middleware/auth");
+const userAuth = require("../middleware/users");
+
 
 //* Register
 router.post("/register", async (req, res) => {
@@ -31,9 +33,8 @@ router.post("/register", async (req, res) => {
 });
 
 //* Update de usuarios
-router.put("/update", Auth, async (req, res) => {
-	const user = await User.findById(req.user._id); //* Validamos usuario
-	if (!user) return res.status(401).send("No existe el usuario");
+router.put("/update", Auth, userAuth, async (req, res) => {
+	
 	const hash = await bcrypt.hash(req.body.password, 10);
 	const userdata = await User.findByIdAndUpdate(req.body._id, {
         _id: req.body._id,
@@ -48,9 +49,8 @@ router.put("/update", Auth, async (req, res) => {
 	return res.status(200).send({ user });
 });
 
-router.put("/changeStatus", Auth, async (req, res) => {
-	const user = await User.findById(req.user._id); //* Validamos usuario
-	if (!user) return res.status(401).send("No existe el usuario");
+router.put("/changeStatus", Auth, userAuth, async (req, res) => {
+
 	const hash = await bcrypt.hash(req.body.password, 10);
     let status = user.status;
     if (status){

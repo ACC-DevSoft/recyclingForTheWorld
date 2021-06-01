@@ -27,8 +27,8 @@
     "url": "https://github.com/ACC-DevSoft/recyclersForTheWorld/issues"
   },
   "homepage": "https://github.com/ACC-DevSoft/recyclersForTheWorld#readme",
-  "description": "",
   "devDependencies": {
     "nodemon": "^2.0.7"
-  }
+  },
+  "description": ""
 }

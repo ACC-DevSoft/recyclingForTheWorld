@@ -45,8 +45,8 @@ router.put("/changeStatus", Auth, async (req, res) => {
         imageUrl: req.body.imageUrl,
         status: status,
     });
-    if(!post) return res.status(401).send("No se pudo Eliminar el post");
-    return res.status(200).send({post})
+    if(!postData) return res.status(401).send("No se pudo Eliminar el post");
+    return res.status(200).send({postData})
 })
 
 module.exports = router;

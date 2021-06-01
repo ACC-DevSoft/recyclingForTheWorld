@@ -7,9 +7,10 @@ const User = require("../models/users");
 const Post = require("../models/post");
 
 const Auth = require("../middleware/auth");
+const userAuth = require("../middleware/user");
 
 
-router.post("/addPost", Auth, async (req, res) => {
+router.post("/addPost", Auth, userAuth, async (req, res) => {
     const user = await User.findById( req.user._id);
     if(!user) return res.status(401).send("Usuario n autenticado");
 

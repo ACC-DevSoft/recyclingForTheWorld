@@ -45,7 +45,7 @@ router.put("/changeStatus", Auth, async (req, res) => {
         status: status,
     });
     if(!postData) return res.status(401).send("No se pudo Eliminar el post");
-    return res.status(200).send({post})
+    return res.status(200).send({postData})
 });
 
 router.get("/usersPosts", Auth, async(req, res) => {

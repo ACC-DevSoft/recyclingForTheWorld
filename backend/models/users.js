@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     password:String,
     rolId: {type: mongoose.Schema.ObjectId, ref: "role"},
     phone: String,
-    status: true,
+    status: Boolean,
     date: {type: Date, default:Date.now}
 });
 

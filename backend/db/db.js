@@ -9,7 +9,7 @@ const dbConnection = async () => {
 			useCreateIndex: true,
 		});
 		console.log("Connected with MongoDB");
-	} catch (error) {
+	} catch (err) {
 		console.log("Error while tring to connect with MongoDB", err);
 		throw new Error("Error while tring to connect with MongoDB");
 	}

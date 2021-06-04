@@ -8,6 +8,7 @@ const User = require("../models/users");
 const Auth = require("../middleware/auth");
 const userAuth = require("../middleware/users");
 const UserReg = require("../middleware/register")
+const Admin = require("../middleware/admin");
 
 //* Register
 router.post("/register", UserReg, async (req, res) => {
@@ -72,32 +73,35 @@ router.put("/changeStatus", Auth, userAuth, UserReg, async (req, res) => {
 	return res.status(200).send({ user });
 });
 
-router.post("/registerAdmin", Auth, UserAuth, Admin, async (req, res) => {
-	if (
-	  !req.body.name ||
-	  !req.body.email ||
-	  !req.body.password ||
-	  !req.body.roleId
-	)
-	  return res.status(400).send("Process failed: Incomplete data");
-  
-	const validId = mongoose.Types.ObjectId.isValid(req.body.roleId);
-	if (!validId) return res.status(401).send("Process failed: Invalid id");
-  
+router.post("/registerAdmin", Auth, userAuth, Admin, async (req, res) => {
+	if(!req.body.roleId || 
+		!user.body.rol ||
+		!user.body.name ||
+		!user.body.lastname ||
+		!user.body.email ||
+		!user.body.password ||
+		!user.body.phone ||
+		!user.body.status){
+			return res.status(400).send("Incomplete fields")
+		};
 	let user = await User.findOne({ email: req.body.email });
 	if (user)
 	  return res
 		.status(400)
-		.send("Process failed: The user is already registered");
+		.send("The user is already registered");
   
 	const hash = await bcrypt.hash(req.body.password, 10);
   
 	user = new User({
 	  name: req.body.name,
+	  lastName: req.body.lastName,
 	  email: req.body.email,
+	  phone: req.body.phone,
+	  user: req.body.user,
 	  password: hash,
+	  status: req.body.status,
 	  roleId: req.body.roleId,
-	  active: true,
+	  rol: req.body.rol
 	});
   
 	try {

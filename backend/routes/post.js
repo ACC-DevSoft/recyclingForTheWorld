@@ -19,7 +19,7 @@ const userAuth = require("../middleware/users");
 const Upload = require("../middleware/imgfile");
 
 router.post("/addPostImg", mult, Upload, Auth, async (req, res) => {
-	if (!req.body.name || !req.body.description)
+	if (!req.body.title || !req.body.description)
 		return res.status(401).send("Data incomplete");
 	let imageUrl = "";
 	let reqImg = req.files.image;

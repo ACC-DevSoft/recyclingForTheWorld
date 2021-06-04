@@ -12,9 +12,9 @@ const upload = (req, res, next) => {
 					.status(401)
 					.send("Invalid format: It's only valid .jpg, .jpeg, .png and .gif");
 			next();
-		} else {
-			next();
 		}
+	} else {
+		next();
 	}
 };
 

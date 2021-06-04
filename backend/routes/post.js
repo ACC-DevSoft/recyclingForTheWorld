@@ -18,16 +18,16 @@ const Auth = require("../middleware/auth");
 const userAuth = require("../middleware/users");
 const Upload = require("../middleware/imgfile");
 
-router.post("/addPostImg", mult, Upload, Auth, userAuth, async (req, res) => {
+router.post("/addPostImg", mult, Upload, Auth, async (req, res) => {
 	if (!req.body.name || !req.body.description)
 		return res.status(401).send("Data incomplete");
-	let imgageUrl = "";
+	let imageUrl = "";
 	let reqImg = req.files.image;
 	if (req.files !== undefined && reqImg.type) {
 		const url = req.protocol + "://" + req.get("host") + "/";
 		let serverImg = "./uploads/" + moment().unix() + path.extname(reqImg.path);
 		fs.createReadStream(reqImg.path).pipe(fs.createWriteStream(serverImg));
-		imgageUrl = url + "upload/" + moment().unix() + path.extname(reqImg.path);
+		imageUrl = url + "upload/" + moment().unix() + path.extname(reqImg.path);
 	}
 	const user = await User.findById(req.user._id);
 	if (!user) return res.status(401).send("User not authenticated");
@@ -36,7 +36,7 @@ router.post("/addPostImg", mult, Upload, Auth, userAuth, async (req, res) => {
 		userId: user._id,
 		title: req.body.title,
 		description: req.body.description,
-		imageUrl: req.body.imageUrl,
+		imageUrl,
 		status: true,
 	});
 

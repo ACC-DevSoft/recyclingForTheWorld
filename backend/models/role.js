@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const roleSchema = new mongoose.Schema({
-  tipoRol: Number,
+  name: String,
   description: String,
   active: Boolean,
   date: { type: Date, default: Date.now },

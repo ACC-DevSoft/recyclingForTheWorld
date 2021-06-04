@@ -5,14 +5,14 @@ const jwt = require("jsonwebtoken");
 
 
 // logica 
-const userSchema = new mongoose.Schema({
-    rol: String,
+const userSchema = new mongoose.Schema({    
     name: String, 
     lastName: String,
     email: String, 
     password:String,
+    rolId: {type: mongoose.Schema.ObjectId, ref: "role"},
     phone: String,
-    status: Boolean,
+    status: true,
     date: {type: Date, default:Date.now}
 });
 

@@ -51,9 +51,9 @@ router.put("/update", Auth, userAuth, UserReg, async (req, res) => {
 });
 
 router.put("/changeStatus", Auth, userAuth, UserReg, async (req, res) => {
-	
-	const hash = await bcrypt.hash(req.body.password, 10);
 	const user = await User.findOne({ email: req.body.email });
+	const hash = await bcrypt.hash(req.body.password, 10);
+	
     let status = user.status;
     if (status){
         status = false;
@@ -73,15 +73,15 @@ router.put("/changeStatus", Auth, userAuth, UserReg, async (req, res) => {
 	return res.status(200).send({ user });
 });
 
-router.post("/registerAdmin", Auth, userAuth, Admin, async (req, res) => {
+router.post("/registerAdmin", Auth, userAuth, async (req, res) => {
 	if(!req.body.roleId || 
-		!user.body.rol ||
-		!user.body.name ||
-		!user.body.lastname ||
-		!user.body.email ||
-		!user.body.password ||
-		!user.body.phone ||
-		!user.body.status){
+		!req.body.rol ||
+		!req.body.name ||
+		!req.body.lastname ||
+		!req.body.email ||
+		!req.body.password ||
+		!req.body.phone ||
+		!req.body.status){
 			return res.status(400).send("Incomplete fields")
 		};
 	let user = await User.findOne({ email: req.body.email });
@@ -93,24 +93,24 @@ router.post("/registerAdmin", Auth, userAuth, Admin, async (req, res) => {
 	const hash = await bcrypt.hash(req.body.password, 10);
   
 	user = new User({
-	  name: req.body.name,
-	  lastName: req.body.lastName,
-	  email: req.body.email,
-	  phone: req.body.phone,
-	  user: req.body.user,
-	  password: hash,
-	  status: req.body.status,
-	  roleId: req.body.roleId,
-	  rol: req.body.rol
+	name: req.body.name,
+	lastName: req.body.lastName,
+	email: req.body.email,
+	phone: req.body.phone,
+	user: req.body.user,
+	password: hash,
+	status: req.body.status,
+	roleId: req.body.roleId,
+	rol: req.body.rol
 	});
   
 	try {
-	  const result = await user.save();
-	  if (!result) return res.status(401).send("Failed to register user");
-	  const jwtToken = user.generateJWT();
-	  res.status(200).send({ jwtToken });
+		const result = await user.save();
+	  	if (!result) return res.status(401).send("Failed to register user");
+	  	const jwtToken = user.generateJWT();
+	 	 res.status(200).send({ jwtToken });
 	} catch (e) {
-	  return res.status(400).send("Failed to register user");
+	  	return res.status(400).send("Failed to register user");
 	}
   });
   

@@ -33,7 +33,7 @@ router.post("/register", UserReg, async (req, res) => {
 });
 
 //* Update de usuarios
-router.put("/update", Auth, userAuth, async (req, res) => {
+router.put("/update", Auth, userAuth, UserReg, async (req, res) => {
 	
 	const hash = await bcrypt.hash(req.body.password, 10);
 	const userdata = await User.findByIdAndUpdate(req.body._id, {
@@ -49,8 +49,8 @@ router.put("/update", Auth, userAuth, async (req, res) => {
 	return res.status(200).send({ userdata });
 });
 
-router.put("/changeStatus", Auth, userAuth, async (req, res) => {
-
+router.put("/changeStatus", Auth, userAuth, UserReg, async (req, res) => {
+	
 	const hash = await bcrypt.hash(req.body.password, 10);
 	const user = await User.findOne({ email: req.body.email });
     let status = user.status;

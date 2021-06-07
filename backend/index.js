@@ -19,7 +19,7 @@ app.use("/api/auth/", Auth);
 app.use("/api/role/", Role);
 
 app.listen(process.env.PORT, () =>
-	console.log("Servidor ejecutando en puerto: " + process.env.PORT)
+	console.log("Server listening port: " + process.env.PORT)
 );
 
 dbConnection();

@@ -1,0 +1,370 @@
+{
+	"info": {
+		"_postman_id": "621c7a04-d3c5-46fa-a6a1-73348ac6a820",
+		"name": "recyclingForTheWorld",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Duvan Andres\",\r\n    \"lastname\": \"Villadiego Hoyos\",\r\n    \"email\": \"test@gmail.com\",\r\n    \"phone\": \"30030303\",\r\n    \"user\": \"Skar\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3025/api/user/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3025",
+					"path": [
+						"api",
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGIwMGFlNTU0MmVhNDFiYzQxZWM1ZDQiLCJuYW1lIjoiRHV2YW4gQW5kcmVzIiwiaWF0IjoxNjIyMTQ5ODYxfQ.aXSn3GottfdZgtmatqtT-6yBSFmByA6tXMTz6UVQ_Oc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3025/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3025",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI1MTUwZTc0MjY1ZjIzNDBmYjhjYmUiLCJuYW1lIjoiQmVuaXRvIHVwZGF0ZSIsInN0YXR1cyI6dHJ1ZSwiaWF0IjoxNjIyNDg5NDA3fQ.j0HNZbMn2FJNHjRpT_sLFet5P4G17wKuc3lcTgHgguU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\":\"60b5150e74265f2340fb8cbe\",\r\n    \"rol\":\"Admin\",\r\n    \"name\":\"Benito updddate\",\r\n    \"lastname\": \"Juarez\",\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"1234\",\r\n    \"phone\": \"00000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3025/api/user/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3025",
+					"path": [
+						"api",
+						"user",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User desabilite",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI1MTUwZTc0MjY1ZjIzNDBmYjhjYmUiLCJuYW1lIjoiQmVuaXRvIHVwZGF0ZSIsInN0YXR1cyI6dHJ1ZSwiaWF0IjoxNjIyNDg5NDA3fQ.j0HNZbMn2FJNHjRpT_sLFet5P4G17wKuc3lcTgHgguU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\":\"60b5150e74265f2340fb8cbe\",\r\n    \"rol\":\"Admin\",\r\n    \"name\":\"Benito update\",\r\n    \"lastname\": \"Juarez\",\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"1234\",\r\n    \"phone\": \"00000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3025/api/user/changeStatus",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3025",
+					"path": [
+						"api",
+						"user",
+						"changeStatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI1M2RmYjBjYTczMzBjY2M2MzBlNjciLCJuYW1lIjoiQmVuaXRvIHVwZGRkYXRlIiwic3RhdHVzIjp0cnVlLCJpYXQiOjE2MjI1MTA2MDR9.hmW6nQI1c-KwhzSUJPg9tft5snEdUtm1oPPk8WQ5MNI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"title\": \"Reciclaje de cajas valle de aburra\",\n        \"description\": \"ería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original.\",\n        \"imageUrl\": \"url imagen\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3025/api/post/addPost",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3025",
+					"path": [
+						"api",
+						"post",
+						"addPost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Post Img",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI1M2RmYjBjYTczMzBjY2M2MzBlNjciLCJuYW1lIjoiQmVuaXRvIHVwZGRkYXRlIiwic3RhdHVzIjp0cnVlLCJpYXQiOjE2MjI1MTA2MDR9.hmW6nQI1c-KwhzSUJPg9tft5snEdUtm1oPPk8WQ5MNI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"title\": \"Reciclaje de cajas valle de aburra\",\n        \"description\": \"ería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original.\",\n        \"imageUrl\": \"url imagen\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3025/api/post/addPost",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3025",
+					"path": [
+						"api",
+						"post",
+						"addPost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List user's posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3025/api/post/usersPosts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3025",
+					"path": [
+						"api",
+						"post",
+						"usersPosts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Disable",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI1M2RmYjBjYTczMzBjY2M2MzBlNjciLCJuYW1lIjoiQmVuaXRvIHVwZGRkYXRlIiwic3RhdHVzIjp0cnVlLCJpYXQiOjE2MjI1MjE5MjB9.Y32BWeO7cZceIbb-wHlm60_IAGuLCHE85Ok_kGhC-gc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\" : \"60b58c9255885e714c0b8337\",\r\n    \"title\":\"Reciclaje de cajas valle de aburra\",\r\n    \"description\":\"Fería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original.\",\r\n    \"imageUrl\":\"url imagen\",\r\n    \"status\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3025/api/post/changeStatus",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3025",
+					"path": [
+						"api",
+						"post",
+						"changeStatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Alejandra\",\r\n    \"lastname\": \"Barrios\",\r\n    \"email\": \"email@gmail.com\",\r\n    \"phone\": \"30030313\",\r\n    \"user\": \"aleja\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3025/api/user/registerAdmin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3025",
+					"path": [
+						"api",
+						"user",
+						"registerAdmin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register role",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGJhOGY4YzkwZDI0YzI5OThlMTlhMmIiLCJuYW1lIjoiQWxlamFuZHJhIiwic3RhdHVzIjp0cnVlLCJpYXQiOjE2MjI4MzkyNjN9.mYWZcFYCSuLqwpLUgiQGRVAuKMR9KwCZ6nROOKPHtic",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipoRol\": \"admin\",\r\n    \"description\": \"has access to everything\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3025/api/role/registerRole",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3025",
+					"path": [
+						"api",
+						"role",
+						"registerRole"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

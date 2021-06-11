@@ -1,1 +1,47 @@
 <p>register works!</p>
+
+<div class="register-container">
+    <mat-card class="card">
+        <mat-card-title>Registrarse</mat-card-title>
+        <hr>
+        <mat-card-content>
+            <div class="container">
+                <div class="row">
+                    <mat-form-field class="col col-md-6">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput type="text"  placeholder="Nombre" required/>
+                    </mat-form-field>
+                    <mat-form-field class="col col-md-6">
+                        <input matInput type="text"  placeholder="Apellido" required>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="col col-md-6">
+                        <input  matInput type="text"  placeholder="Nombre de usuario" required>
+                    </mat-form-field>
+                    <mat-form-field class="col col-md-6">
+                        <input type="number" class="form-control" placeholder="Telefono">
+                    </mat-form-field>
+                </div>
+                <mat-form-field class="col">
+                    <input type="text" class="form-control" placeholder="Email">
+                </mat-form-field>
+                <mat-form-field class="col">
+                    <input type="password" class="form-control" placeholder="contraseña">
+                </mat-form-field>
+                <div class="">
+                    <span>Texto <a routerLink="#">item</a></span>
+                    <span>Texto <a routerLink="#">item</a></span>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <div class="container">
+                <div class="row">
+                    <button class="col btn">Login</button>
+                    <button class="col btn">Registrase</button>
+                </div>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -13,15 +13,15 @@
   </ul>
   <span class="headerSpacer"></span>
   <ul>
-    <mat-accordion class="example-headers-align" multi>
+    <mat-accordion class="example-headers-align"  (click)="toggler()" multi>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title> Mi cuenta </mat-panel-title>
           <mat-icon>account_circle</mat-icon>
         </mat-expansion-panel-header>
         <mat-list>
-            <mat-list-item> <mat-button routerLink="login">Ingresar</mat-button></mat-list-item>
-            <mat-list-item> <mat-button routerLink="register">Registrarse</mat-button></mat-list-item>
+            <mat-list-item> <a mat-button routerLink="login">Ingresar</a></mat-list-item>
+            <mat-list-item> <a mat-button routerLink="register">Registrarse</a></mat-list-item>
         </mat-list>
       </mat-expansion-panel>
     </mat-accordion>

@@ -9,6 +9,8 @@ import { HeaderComponent } from './home/header/header.component';
 import { RegisterRoleComponent } from './admin/register-role/register-role.component';
 import { ListRoleComponent } from './admin/list-role/list-role.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddPostComponent } from './post/add-post/add-post.component';
+import { ListPostComponent } from './post/list-post/list-post.component';
 import { AuthService } from './services/auth.service';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -30,7 +32,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     LoginComponent,
     HeaderComponent,
     RegisterRoleComponent,
-    ListRoleComponent
+    ListRoleComponent,
+    AddPostComponent,
+    ListPostComponent
   ],
   imports: [
     BrowserModule,

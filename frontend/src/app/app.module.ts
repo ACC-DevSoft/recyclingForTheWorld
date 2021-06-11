@@ -9,6 +9,18 @@ import { HeaderComponent } from './home/header/header.component';
 import { RegisterRoleComponent } from './admin/register-role/register-role.component';
 import { ListRoleComponent } from './admin/list-role/list-role.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthService } from './services/auth.service';
+
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+import {MatListModule} from '@angular/material/list';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,9 +34,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatExpansionModule,
+    HttpClientModule,
+    FormsModule,
+    MatListModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

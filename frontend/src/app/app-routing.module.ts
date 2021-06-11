@@ -6,6 +6,9 @@ import { RegisterRoleComponent } from './admin/register-role/register-role.compo
 import { ListRoleComponent } from './admin/list-role/list-role.component';
 import { AddPostComponent } from './post/add-post/add-post.component';
 import { ListPostComponent } from './post/list-post/list-post.component';
+import { PostComponent } from './post/post/post.component';
+import { ConnectComponent } from './connect/connect/connect.component';
+import { StatisticComponent } from './statistic/statistic/statistic.component';
 
 const routes: Routes = [
   {
@@ -36,6 +39,18 @@ const routes: Routes = [
   {
     path: 'userPosts',
     component: ListPostComponent,
+  },
+  {
+    path: 'posts',
+    component: PostComponent,
+  },
+  {
+    path: 'connect',
+    component: ConnectComponent,
+  },
+  {
+    path: 'statistic',
+    component: StatisticComponent,
   },
 ];
 

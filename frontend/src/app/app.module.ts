@@ -11,6 +11,9 @@ import { ListRoleComponent } from './admin/list-role/list-role.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddPostComponent } from './post/add-post/add-post.component';
 import { ListPostComponent } from './post/list-post/list-post.component';
+import { PostComponent } from './post/post/post.component';
+import { StatisticComponent } from './statistic/statistic/statistic.component';
+import { ConnectComponent } from './connect/connect/connect.component';
 import { AuthService } from './services/auth.service';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -23,7 +26,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 import { HttpClientModule } from "@angular/common/http";
+
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+
+
 
 @NgModule({
   declarations: [
@@ -34,7 +40,10 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     RegisterRoleComponent,
     ListRoleComponent,
     AddPostComponent,
-    ListPostComponent
+    ListPostComponent,
+    PostComponent,
+    StatisticComponent,
+    ConnectComponent
   ],
   imports: [
     BrowserModule,

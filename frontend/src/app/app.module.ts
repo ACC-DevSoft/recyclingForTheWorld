@@ -11,17 +11,17 @@ import { ListRoleComponent } from './admin/list-role/list-role.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './services/auth.service';
 
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
-import {MatListModule} from '@angular/material/list';
+
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -40,12 +40,12 @@ import { HttpClientModule } from "@angular/common/http";
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCardModule,
     MatIconModule,
     MatExpansionModule,
+    MatListModule,
     HttpClientModule,
     FormsModule,
-    MatListModule,
-    MatCardModule,
     ReactiveFormsModule
   ],
   providers: [AuthService],

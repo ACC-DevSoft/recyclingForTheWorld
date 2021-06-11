@@ -8,6 +8,7 @@ import { LoginComponent } from './home/login/login.component';
 import { HeaderComponent } from './home/header/header.component';
 import { RegisterRoleComponent } from './admin/register-role/register-role.component';
 import { ListRoleComponent } from './admin/list-role/list-role.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ListRoleComponent } from './admin/list-role/list-role.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

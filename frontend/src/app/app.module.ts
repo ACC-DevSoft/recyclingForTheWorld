@@ -11,22 +11,25 @@ import { ListRoleComponent } from './admin/list-role/list-role.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddPostComponent } from './post/add-post/add-post.component';
 import { ListPostComponent } from './post/list-post/list-post.component';
+import { PostComponent } from './post/post/post.component';
+import { StatisticComponent } from './statistic/statistic/statistic.component';
+import { ConnectComponent } from './connect/connect/connect.component';
 import { AuthService } from './services/auth.service';
-
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
-import {MatListModule} from '@angular/material/list';
+
 import { HttpClientModule } from "@angular/common/http";
-import { MatCardModule } from '@angular/material/card';
-import { PostComponent } from './post/post/post.component';
-import { StatisticComponent } from './statistic/statistic/statistic.component';
-import { ConnectComponent } from './connect/connect/connect.component';
+
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+
+
 
 @NgModule({
   declarations: [
@@ -50,13 +53,13 @@ import { ConnectComponent } from './connect/connect/connect.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCardModule,
     MatIconModule,
     MatExpansionModule,
+    MatListModule,
     HttpClientModule,
     FormsModule,
-    MatListModule,
-    ReactiveFormsModule,
-    MatCardModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../environments/environment";
+import { environment } from "../../environments/environment";
+import { HttpClient} from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +13,10 @@ export class AuthService {
 
   registerRole(role: any) {
     return this.http.post(this.env + 'role/registerRole', role)
+
+   }
+
+  registerUser(user: any){
+    return this.http.post(this.env +"user/register/",user);
   }
 }

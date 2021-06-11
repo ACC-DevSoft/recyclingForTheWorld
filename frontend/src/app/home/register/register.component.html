@@ -1,1 +1,64 @@
-<p>register works!</p>
+<div class="register-container">
+    <mat-card class="card">
+        <mat-card-title>Registrarse</mat-card-title>
+        <div class="container">
+            <div class="col-12 col-lg-12" *ngIf="successMessage">
+                <div class="alert alert-success alert-dismissible"  role="alert">
+                    <div class="alert-message">
+                        <mat-icon>check</mat-icon><span>{{successMessage}}</span>
+                    </div> 
+                    <button type="button" class="close" (click)="closex()" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>   
+                </div>
+            </div>
+            <div class="col-12 col-lg-12" *ngIf="errorMessage">
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <div class="alert-message">
+                        <mat-icon>close</mat-icon><span> {{errorMessage}}</span>
+                    </div> 
+                    <button type="button" class="close" (click)="closex()" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>   
+                </div>
+            </div>
+        </div>
+        <hr>
+        <mat-card-content>
+            <div class="container">
+                <div class="row">
+                    <mat-form-field class="col col-md-6">
+                        <input [(ngModel)]=registerData.name matInput type="text"  placeholder="Nombre" required/>
+                    </mat-form-field>
+                    <mat-form-field class="col col-md-6">
+                        <input [(ngModel)]=registerData.lastname matInput type="text"  placeholder="Apellido" required>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="col col-md-6">
+                        <input [(ngModel)]=registerData.username matInput type="text"  placeholder="Nombre de usuario" required>
+                    </mat-form-field>
+                    <mat-form-field class="col col-md-6">
+                        <input  [(ngModel)]=registerData.phone matInput type="number"  placeholder="Telefono">
+                    </mat-form-field>
+                   
+                </div>
+                <mat-form-field class="col">
+                    <input [(ngModel)]=registerData.email matInput type="email"  placeholder="Correo" required>
+                </mat-form-field>
+                <mat-form-field class="col">
+                    <input [(ngModel)]=registerData.password matInput type="password"  placeholder="Contraseña" required>
+                </mat-form-field>
+                <hr>
+                <div class="container others">
+                    <span>Texto <a routerLink="#">item</a></span>
+                    <span>Texto <a routerLink="#">item</a></span>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <div class="container">
+                <div class="row">
+                    <a routerLink="login" class="col-sm-6 btn  btn-secondary" >Login</a>
+                    <button  (click)="registerUser()" class="col-sm-6 btn btn-success">Registrarse</button>
+                </div>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+</div>

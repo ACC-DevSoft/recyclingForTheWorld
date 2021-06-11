@@ -1,19 +1,15 @@
-//* Express
 const express = require("express");
 const router = express.Router();
 
-//* Modules
 const multiparty = require("connect-multiparty");
 const mult = multiparty();
 const fs = require("fs");
 const path = require("path");
 const moment = require("moment");
 
-//* Models
 const User = require("../models/users");
 const Post = require("../models/post");
 
-//* Middlewares
 const Auth = require("../middleware/auth");
 const userAuth = require("../middleware/users");
 const Upload = require("../middleware/imgfile");

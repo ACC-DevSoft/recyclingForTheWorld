@@ -9,6 +9,8 @@ import { HeaderComponent } from './home/header/header.component';
 import { RegisterRoleComponent } from './admin/register-role/register-role.component';
 import { ListRoleComponent } from './admin/list-role/list-role.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddPostComponent } from './post/add-post/add-post.component';
+import { ListPostComponent } from './post/list-post/list-post.component';
 import { AuthService } from './services/auth.service';
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -21,6 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import {MatListModule} from '@angular/material/list';
 import { HttpClientModule } from "@angular/common/http";
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { HttpClientModule } from "@angular/common/http";
     LoginComponent,
     HeaderComponent,
     RegisterRoleComponent,
-    ListRoleComponent
+    ListRoleComponent,
+    AddPostComponent,
+    ListPostComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,8 @@ import { HttpClientModule } from "@angular/common/http";
     HttpClientModule,
     FormsModule,
     MatListModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

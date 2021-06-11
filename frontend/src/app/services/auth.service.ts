@@ -12,6 +12,6 @@ export class AuthService {
   }
 
   registerRole(role: any) {
-    return this.http.post(this.env + '/role/registerRole', role)
+    return this.http.post(this.env + 'role/registerRole', role)
   }
 }

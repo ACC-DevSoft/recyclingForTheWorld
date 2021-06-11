@@ -1,1 +1,29 @@
-<p>header works!</p>
+<mat-toolbar class="bgHeader">
+  <ul>
+    <a routerLink="">RECYCLING FOR THE WORLD</a>
+  </ul>
+  <ul>
+    <a routerLink="">Posts</a>
+  </ul>
+  <ul>
+    <a routerLink="">Conectar</a>
+  </ul>
+  <ul>
+    <a routerLink="">Estadísticas</a>
+  </ul>
+  <span class="headerSpacer"></span>
+  <ul>
+    <mat-accordion class="example-headers-align"  (click)="toggler()" multi>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Mi cuenta </mat-panel-title>
+          <mat-icon>account_circle</mat-icon>
+        </mat-expansion-panel-header>
+        <mat-list>
+            <mat-list-item> <a mat-button routerLink="login">Ingresar</a></mat-list-item>
+            <mat-list-item> <a mat-button routerLink="register">Registrarse</a></mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </ul>
+</mat-toolbar>

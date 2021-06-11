@@ -1,15 +1,19 @@
 .register-container{
-    background-color: #462158;
+    background-color: white;
     width: 80%;
-    height: 90vh;
-    margin: auto;
+    height: 80vh;
+    margin: 50px auto;
     color: #707070;
 }
 .card{
     min-width: 150px;
-    max-width: 500px;
+    max-width: 850px;
     width: 100%;
+    color: #707070;
+    margin: auto;
+    padding: 50px;
 }
+
 .container{
     display: flex;
     flex-direction: column;
@@ -17,7 +21,6 @@
 .button{
     width: 100%;
 }
-
 
 .form{
     padding: 30px 0px 0px;
@@ -32,8 +35,14 @@ mat-card-title{
     font-size: 40px;
     font-weight: bold;
     letter-spacing: -1px;
+    font-family: 'Baloo Tamma 2', cursive;
 }
 .colorButton{
     background-color:#462158;
     color: white;
+}
+.others{
+    display: block;
+    color: #707070;
+    margin-top: 10px;
 }

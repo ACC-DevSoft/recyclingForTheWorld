@@ -1,6 +1,7 @@
 <div class="register-container">
     <mat-card class="card">
         <mat-card-title>Registrarse</mat-card-title>
+        <hr>
         <div class="container">
             <div class="col-12 col-lg-12" *ngIf="successMessage">
                 <div class="alert alert-success alert-dismissible"  role="alert">
@@ -19,20 +20,11 @@
                 </div>
             </div>
         </div>
-        <hr>
         <mat-card-content>
             <div class="container">
                 <div class="row">
                     <mat-form-field class="col col-md-6">
-                        <input [(ngModel)]=registerData.name matInput type="text"  placeholder="Nombre" required/>
-                    </mat-form-field>
-                    <mat-form-field class="col col-md-6">
-                        <input [(ngModel)]=registerData.lastName matInput type="text"  placeholder="Apellido" required>
-                    </mat-form-field>
-                </div>
-                <div class="row">
-                    <mat-form-field class="col col-md-6">
-                        <input [(ngModel)]=registerData.username matInput type="text"  placeholder="Nombre de usuario" required>
+                        <input [(ngModel)]=registerData.fullName matInput type="text"  placeholder="Nombre completo" required/>
                     </mat-form-field>
                     <mat-form-field class="col col-md-6">
                         <input  [(ngModel)]=registerData.phone matInput type="number"  placeholder="Telefono">
@@ -47,16 +39,19 @@
                 </mat-form-field>
                 <hr>
                 <div class="container others">
-                    <span>Texto <a routerLink="#">item</a></span>
-                    <span>Texto <a routerLink="#">item</a></span>
+                    <span> <a routerLink="/">Terminos y condicones</a></span>
                 </div>
             </div>
         </mat-card-content>
         <mat-card-actions>
             <div class="container">
                 <div class="row">
-                    <a routerLink="login" class="col-sm-6 btn  btn-secondary" >Login</a>
-                    <button  (click)="registerUser()" class="col-sm-6 btn btn-success">Registrarse</button>
+                    <div class="col">
+                        <a routerLink="/login" class="col-sm-12 btn  btn-secondary" >Login</a>
+                    </div>
+                    <div class="col">
+                        <button  (click)="registerUser()" class="col-sm-12 btn btn-success">Registrarse</button>
+                    </div>
                 </div>
             </div>
         </mat-card-actions>

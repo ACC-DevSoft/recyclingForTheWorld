@@ -2,15 +2,13 @@ const user = async (req, res, next) => {
 	const user = req.body;
 	if (
 		!user.rol ||
-		!user.name ||
-		!user.lastname ||
+		!user.fullName ||
 		!user.email ||
 		!user.password ||
 		!user.phone ||
 		!user.status ||
 		user.rol == "" ||
 		user.name == "" ||
-		user.lastname == "" ||
 		user.email == "" ||
 		user.password == "" ||
 		user.phone == "" ||

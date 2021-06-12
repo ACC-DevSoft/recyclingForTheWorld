@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser(){
-   if (!this.registerData.name || !this.registerData.lastName || !this.registerData.username || !this.registerData.email || !this.registerData.password) {
+   if (!this.registerData.fullName || !this.registerData.email || !this.registerData.password) {
      console.log("Process Failed: Incomplete Data!");
      this.errorMessage = 'Process Failed: Incomplete Data!';
      this.registerData = {}

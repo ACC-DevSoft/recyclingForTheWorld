@@ -10,13 +10,12 @@ const userAuth = require("../middleware/users");
 const UserReg = require("../middleware/register");
 const Admin = require("../middleware/admin");
 
-router.post("/register",  async (req, res) => {
+router.post("/register",   async (req, res) => {
 	let user = await User.findOne({ email: req.body.email });
 	if (user) return res.status(401).send("Email is already registered");
 	const hash = await bcrypt.hash(req.body.password, 10);
 	user = new User({
-		name: req.body.name,
-		lastName: req.body.lastName,
+		fullName: req.body.fullName,
 		email: req.body.email,
 		password: hash,
 		role: "User",

@@ -37,8 +37,12 @@
         <mat-card-actions>
             <div class="container">
                 <div class="row">
-                    <a routerLink="register" class="col-sm-6 btn  btn-secondary" >Registrarse</a>
-                    <button  (click)="loginUser()" class="col-sm-6 btn btn-success">Login</button>
+                    <div class="col">
+                        <a routerLink="/register" class="col-lg-12 btn  btn-secondary" >Registrarse</a>
+                    </div>
+                    <div class="col">
+                        <button  (click)="loginUser()" class="col-lg-12 btn btn-success">Login</button>
+                    </div>
                 </div>
             </div>
         </mat-card-actions>

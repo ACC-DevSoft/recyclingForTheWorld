@@ -1,1 +1,46 @@
-<p>login works!</p>
+<div class="login-container">
+    <mat-card class="card">
+        <mat-card-title>Iniciar Sesion</mat-card-title>
+        <div class="container">
+            <div class="col-12 col-lg-12" *ngIf="successMessage">
+                <div class="alert alert-success alert-dismissible"  role="alert">
+                    <div class="alert-message">
+                        <mat-icon>check</mat-icon><span>{{successMessage}}</span>
+                    </div> 
+                    <button type="button" class="close" (click)="closex()" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>   
+                </div>
+            </div>
+            <div class="col-12 col-lg-12" *ngIf="errorMessage">
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <div class="alert-message">
+                        <mat-icon>close</mat-icon><span> {{errorMessage}}</span>
+                    </div> 
+                    <button type="button" class="close" (click)="closex()" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>   
+                </div>
+            </div>
+        </div>
+        <hr>
+        <mat-card-content>
+            <div class="container">
+                <mat-form-field class="col">
+                    <input [(ngModel)]=registerData.email matInput type="email"  placeholder="Correo" required>
+                </mat-form-field>
+                <mat-form-field class="col">
+                    <input [(ngModel)]=registerData.password matInput type="password"  placeholder="Contraseña" required>
+                </mat-form-field>
+                <hr>
+                <div class="container others">
+                    <span>Recuperar <a routerLink="#">contraseña</a></span>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <div class="container">
+                <div class="row">
+                    <a routerLink="register" class="col-sm-6 btn  btn-secondary" >Registrarse</a>
+                    <button  (click)="loginUser()" class="col-sm-6 btn btn-success">Login</button>
+                </div>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+</div>

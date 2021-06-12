@@ -55,6 +55,6 @@ export class RegisterComponent implements OnInit {
   closex(){
     this.successMessage ='';
     this.errorMessage = '';
-  };
+  }; 
 
 }
